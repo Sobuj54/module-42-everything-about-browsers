@@ -12,3 +12,14 @@ const dharKiDibi = () => {
     alert("tui blocked");
   }
 };
+
+const getInfo = () => {
+  // prompt provides an input field..prompt also has a return value which we can store
+  const name = prompt("give your name.");
+
+  if (name === null) {
+    alert("give your name again");
+  } else {
+    console.log(name);
+  }
+};

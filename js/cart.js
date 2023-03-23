@@ -5,7 +5,7 @@ const addProduct = () => {
   const quantity = quantityField.value;
   productField.value = "";
   quantityField.value = "";
-  console.log(product, quantity);
+  // console.log(product, quantity);
   addList(product, quantity);
 };
 
@@ -14,4 +14,13 @@ const addList = (product, quantity) => {
   const li = document.createElement("li");
   li.innerText = `${product} : ${quantity}`;
   ul.appendChild(li);
+};
+
+const getDataFromLocalStorage = () => {
+  let cart = {};
+  const storedCart = localStorage.getItem("cart");
+  if (storedCart) {
+    cart = JSON.parse(storedCart);
+  }
+  return cart;
 };

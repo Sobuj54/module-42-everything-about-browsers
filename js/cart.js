@@ -7,6 +7,7 @@ const addProduct = () => {
   quantityField.value = "";
   // console.log(product, quantity);
   addList(product, quantity);
+  saveDataToLocalStorage(product, quantity);
 };
 
 const addList = (product, quantity) => {
@@ -23,4 +24,12 @@ const getDataFromLocalStorage = () => {
     cart = JSON.parse(storedCart);
   }
   return cart;
+};
+
+const saveDataToLocalStorage = (product, quantity) => {
+  const cart = getDataFromLocalStorage();
+  cart[product] = quantity;
+  const cartStringified = JSON.stringify(cart);
+  localStorage.setItem("cart", cartStringified);
+  console.log(cartStringified);
 };
